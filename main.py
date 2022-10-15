@@ -1,22 +1,21 @@
 import random
+import numpy as np
+import streamlit as st
 
-def 네이밍뭐로하지(stdNum, n):
-    stdList = [i+1 for i in range(stdNum-1)]
-    random.shuffle(stdList)
-    return [stdList[i * n:(i + 1) * n] for i in range((len(stdList) + n - 1) // n )]
+stdNum = 30
 
-print(네이밍뭐로하지(30, 5))
+def 풀어서적은코드(stdNum, n): # n = 줄 몇개로 쪼갤지
+    stdList = []
+    stdNumList = []
 
-# def 풀어서적은코드(stdNum, n):
-#     stdList = []
-#     _stdList = []
+    for i in range(stdNum):
+        stdNumList.append(i+1)
+    random.shuffle(stdNumList)
 
-#     for i in range(stdNum):
-#         _stdList.append(i+1)
-#     random.shuffle(_stdList)
+    for i in range((len(stdNumList) + n - 1) // n ):
+        stdList.append(stdNumList[i * n:(i + 1) * n])
 
-#     for i in range((len(_stdList) + n - 1) // n ):
-#         stdList.append(_stdList[i * n:(i + 1) * n])
-#     return stdList
+    return stdList
 
-# print(풀어서적은코드(30, 5))
+st.write('### 교탁')
+st.write(np.asarray(풀어서적은코드(stdNum, 5)))
