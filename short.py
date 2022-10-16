@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 def 네이밍뭐로하지(stdNum, n):
     stdList = [i+1 for i in range(stdNum-1)]
